@@ -8,6 +8,7 @@ COPY root /
 
 RUN apk add --update \
   bash \
+  python \
   tini \
   && addgroup -g ${GID} homebridge \
   && adduser -u ${UID} -h /opt/homebridge -H -G homebridge -s /bin/bash -D homebridge \
