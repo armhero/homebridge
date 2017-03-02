@@ -23,9 +23,12 @@ RUN apk add --update \
   avahi-dev \
   && chmod +x /usr/local/bin/*.sh \
   && rm -rf /var/cache/apk/* \
-  && mkdir -p /var/run/dbus
+  && mkdir -p /var/run/dbus \
+  && ln -s /root/.homebridge /config
 
 EXPOSE 5353 51826
+
+VOLUME ["/config"]
 
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["/usr/local/bin/run-container.sh"]
