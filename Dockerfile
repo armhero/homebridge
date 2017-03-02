@@ -8,7 +8,7 @@ COPY root /
 
 RUN apk add --update \
   alpine-sdk \
-  avahi-compat-libdns_sd \
+  avahi \
   avahi-dev \
   bash \
   python \
@@ -18,8 +18,12 @@ RUN apk add --update \
   && npm install -g homebridge \
   && apk del \
   alpine-sdk \
-  && chmod +x /usr/local/bin/run-container.sh \
-  && rm -rf /var/cache/apk/*
+  avahi-dev \
+  && chmod +x /usr/local/bin/*.sh \
+  && rm -rf /var/cache/apk/* \
+  && mkdir -p /var/run/dbus
+
+EXPOSE 5353 51826
 
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["/usr/local/bin/run-container.sh"]
