@@ -4,7 +4,7 @@ if [ -n "$PLUGINS" ]; then
   _PLUGINS=$(echo $PLUGINS | tr ";" "\n")
   for PLUGIN in $_PLUGINS
   do
-      "Installing plugin: ${PLUGIN}"
+      echo "Installing plugin: ${PLUGIN}"
       npm install -g ${PLUGIN}
   done
 fi
