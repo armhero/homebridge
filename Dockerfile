@@ -15,7 +15,7 @@ RUN apk add --update \
   tini \
   && addgroup -g ${GID} homebridge \
   && adduser -u ${UID} -h /opt/homebridge -H -G homebridge -s /bin/bash -D homebridge \
-  && npm install -g --unsafe-perm homebridge \
+  && npm install -g homebridge \
   && apk del \
   alpine-sdk \
   && chmod +x /usr/local/bin/run-container.sh \
