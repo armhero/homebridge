@@ -12,6 +12,7 @@ RUN apk add --update \
   avahi-compat-libdns_sd \
   avahi-dev \
   bash \
+  dbus \
   python \
   tini \
   && addgroup -g ${GID} homebridge \
