@@ -8,6 +8,7 @@ COPY root /
 
 RUN apk add --update \
   alpine-sdk \
+  avahi-compat-libdns_sd \
   bash \
   python \
   tini \
