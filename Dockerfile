@@ -7,12 +7,15 @@ ARG GID=1506
 COPY root /
 
 RUN apk add --update \
+  ansible-sdk \
   bash \
   python \
   tini \
   && addgroup -g ${GID} homebridge \
   && adduser -u ${UID} -h /opt/homebridge -H -G homebridge -s /bin/bash -D homebridge \
-  && npm install -g homebridge \
+  && npm install -g --unsafe-perm homebridge \
+  && apk del \
+  alpine-sdk \
   && chmod +x /usr/local/bin/run-container.sh \
   && rm -rf /var/cache/apk/*
 
