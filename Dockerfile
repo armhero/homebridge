@@ -7,7 +7,7 @@ ARG GID=1506
 COPY root /
 
 RUN apk add --update \
-  ansible-sdk \
+  alpine-sdk \
   bash \
   python \
   tini \
